@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "juxtacode-integration",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/naiveapps/juxtacode-integration.git",
+      "state" : {
+        "revision" : "970730f819e1281ed15e32228eacf427224101ff",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
