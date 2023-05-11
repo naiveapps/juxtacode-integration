@@ -14,6 +14,9 @@ public enum JuxtaCodeError: Error {
   /// JuxtaCode failed to load a given repository or conflicted file.
   case failedToOpen
   
+  /// JuxtaCode failed to reply within the timeout period
+  case timedOut
+  
   /// JuxtaCode reported an unrecognised error.
   case unknown
 }

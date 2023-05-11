@@ -2,7 +2,7 @@ import Cocoa
 
 struct MergeToolClient {
   
-  static func open(url: URL, in repo: URL) async throws -> MergeTool.Result {
+  static func open(url: URL, in repo: URL, timeout: TimeInterval) async throws -> MergeTool.Result {
     
     var isDir: ObjCBool = false
     guard FileManager.default.fileExists(atPath: repo.path, isDirectory: &isDir), isDir.boolValue,
@@ -30,7 +30,9 @@ struct MergeToolClient {
     let scriptSource =
 """
 tell application "\(appURL.path)"
-  merge "\(url.path)" in "\(repo.path)" \(isSandboxed ? "and prompt for permission yes" : "")
+  with timeout of \(timeout) seconds
+    merge "\(url.path)" in "\(repo.path)" \(isSandboxed ? "and prompt for permission yes" : "")
+  end timeout
 end tell
 """
         
@@ -45,6 +47,9 @@ end tell
             let data = stringResult.data(using: .utf8),
             let result = try? JSONDecoder().decode(Result.self, from: data)
       else {
+        if errorInfo?[NSAppleScript.errorNumber] as? Int == -1712 {
+          throw JuxtaCodeError.timedOut
+        }
         throw JuxtaCodeError.failedToExecute(String(describing: errorInfo))
       }
 
