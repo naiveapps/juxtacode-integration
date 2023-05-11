@@ -30,7 +30,7 @@ struct MergeToolClient {
     let scriptSource =
 """
 tell application "\(appURL.path)"
-  with timeout of \(timeout) seconds"
+  with timeout of \(timeout) seconds
     merge "\(url.path)" in "\(repo.path)" \(isSandboxed ? "and prompt for permission yes" : "")
   end timeout
 end tell
