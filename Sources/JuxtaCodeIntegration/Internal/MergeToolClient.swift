@@ -47,6 +47,9 @@ end tell
             let data = stringResult.data(using: .utf8),
             let result = try? JSONDecoder().decode(Result.self, from: data)
       else {
+        if errorInfo?[NSAppleScript.errorNumber] as? Int == -1712 {
+          throw JuxtaCodeError.timedOut
+        }
         throw JuxtaCodeError.failedToExecute(String(describing: errorInfo))
       }
 

@@ -146,6 +146,8 @@ public extension JuxtaCodeError {
       return "Unable to communicate with JuxtaCode"
     case .failedToOpen:
       return "JuxtaCode was not able to open the file."
+    case .timedOut:
+      return "Merge timed out."
     case .unknown:
       return "Something went wrong."
     }
