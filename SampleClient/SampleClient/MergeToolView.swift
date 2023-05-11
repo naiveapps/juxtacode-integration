@@ -106,6 +106,7 @@ struct MergeToolView: View {
   func chooseFile() {
     let dialog = NSOpenPanel()
     dialog.canCreateDirectories = false
+    dialog.treatsFilePackagesAsDirectories = true
     
     dialog.prompt = "Choose Conflicted File"
     
