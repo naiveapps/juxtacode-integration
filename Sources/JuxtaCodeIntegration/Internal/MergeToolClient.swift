@@ -2,7 +2,7 @@ import Cocoa
 
 struct MergeToolClient {
   
-  static func open(url: URL, in repo: URL, timeout: TimeInterval = 18000) async throws -> MergeTool.Result {
+  static func open(url: URL, in repo: URL, timeout: TimeInterval) async throws -> MergeTool.Result {
     
     var isDir: ObjCBool = false
     guard FileManager.default.fileExists(atPath: repo.path, isDirectory: &isDir), isDir.boolValue,
