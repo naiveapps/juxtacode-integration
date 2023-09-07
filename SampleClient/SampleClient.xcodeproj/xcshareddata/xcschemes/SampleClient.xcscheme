@@ -52,8 +52,8 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "JUXTACODE_INTEGRATION_PATH"
-            value = "/Users/yori/Library/Developer/Xcode/DerivedData/Build/Products/Debug/JuxtaCode.app"
-            isEnabled = "YES">
+            value = "/Applications/JuxtaCode.app"
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>

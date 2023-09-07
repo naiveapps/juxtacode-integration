@@ -18,8 +18,6 @@ let result = try await MergeTool.open(conflictedFile, in: repo)
 ```
 ---
 
-Sandboxed apps need to adopt the `scripting-targets` entitlement. See [SampleClient.entitlements](SampleClient/SampleClient/SampleClient.entitlements).
-
 This package does not make use of JuxtaCode's command line tool and doesn't require the user to have it installed.
 
 The [SampleClient](SampleClient/) project demonstrates how the API can be used.

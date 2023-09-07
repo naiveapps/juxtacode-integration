@@ -4,11 +4,20 @@ import JuxtaCodeIntegration
 
 struct MergeToolView: View {
   
+  @EnvironmentObject private var appDelegate: AppDelegate
+  
   @State var repo: URL?
   @State var url: URL?
   @State var message: String? = nil
   
-  @State private var isMergeToolOpen: Bool = false
+  @State private var isMergeToolOpen: Bool = false {
+    didSet {
+      if isMergeToolOpen {
+        // reset url
+        appDelegate.url = nil
+      }
+    }
+  }
   
   private var canOpenMergeTool: Bool {
     return !isMergeToolOpen && repo != nil && url != nil
@@ -62,15 +71,9 @@ struct MergeToolView: View {
             message = nil
             Task {
               isMergeToolOpen = true
-              defer { isMergeToolOpen = false }
               
               do {
-                let result = try await JuxtaCodeIntegration.MergeTool.open(url, in: repo)
-                
-                // Merge tool has finished so return the user to this app
-                NSApp.activate(ignoringOtherApps: true)
-                
-                message = result.message
+                try await JuxtaCodeIntegration.MergeTool.open(url, in: repo, callback: .init(string: "juxtacode-client://merge-tool"))
               } catch let error as JuxtaCodeError {
                 message = "❌ " + error.message
               } catch {
@@ -86,6 +89,9 @@ struct MergeToolView: View {
       Text(message ?? "")
         .lineLimit(0)
         .frame(minHeight: 20)
+    }
+    .onChange(of: appDelegate.url) { url in
+      isMergeToolOpen = (url == nil)
     }
   }
   
@@ -121,32 +127,13 @@ struct MergeTool_Previews: PreviewProvider {
   }
 }
 
-extension MergeTool.Result {
-  var message: String {
-    
-    switch self {
-    case .resolved:
-      return "Conflict was resolved 👍"
-    case .unresolved:
-      return "Conflict was not resolved 👎"
-    }
-    
-  }
-}
-
 public extension JuxtaCodeError {
   var message: String {
     switch self {
     case .applicationNotFound:
       return "Could not find JuxtaCode."
-    case .fileNotFound:
-      return "File not found."
-    case .failedToExecute(_):
-      return "Unable to communicate with JuxtaCode"
-    case .failedToOpen:
+    case .failedToGenerateUniversalLink:
       return "JuxtaCode was not able to open the file."
-    case .unknown:
-      return "Something went wrong."
     }
   }
 }

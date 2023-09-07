@@ -12,7 +12,7 @@
 		995A852429FB2C480092237C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 995A852329FB2C480092237C /* Preview Assets.xcassets */; };
 		995A852C29FB4C060092237C /* MergeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A852B29FB4C060092237C /* MergeToolView.swift */; };
 		995A855129FCFE430092237C /* DiffToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995A855029FCFE430092237C /* DiffToolView.swift */; };
-		99A73A862A01FF48002884AB /* JuxtaCodeIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = 99A73A852A01FF48002884AB /* JuxtaCodeIntegration */; };
+		995AB4DA2AA6CEB900C7DB27 /* JuxtaCodeIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = 995AB4D92AA6CEB900C7DB27 /* JuxtaCodeIntegration */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +23,7 @@
 		995A852529FB2C480092237C /* SampleClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleClient.entitlements; sourceTree = "<group>"; };
 		995A852B29FB4C060092237C /* MergeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeToolView.swift; sourceTree = "<group>"; };
 		995A855029FCFE430092237C /* DiffToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffToolView.swift; sourceTree = "<group>"; };
+		995AB4DB2AA6E69500C7DB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99A73A862A01FF48002884AB /* JuxtaCodeIntegration in Frameworks */,
+				995AB4DA2AA6CEB900C7DB27 /* JuxtaCodeIntegration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +58,7 @@
 		995A851B29FB2C460092237C /* SampleClient */ = {
 			isa = PBXGroup;
 			children = (
+				995AB4DB2AA6E69500C7DB27 /* Info.plist */,
 				995A851C29FB2C460092237C /* SampleClientApp.swift */,
 				995A852B29FB4C060092237C /* MergeToolView.swift */,
 				995A855029FCFE430092237C /* DiffToolView.swift */,
@@ -99,7 +101,7 @@
 			);
 			name = SampleClient;
 			packageProductDependencies = (
-				99A73A852A01FF48002884AB /* JuxtaCodeIntegration */,
+				995AB4D92AA6CEB900C7DB27 /* JuxtaCodeIntegration */,
 			);
 			productName = SampleClient;
 			productReference = 995A851929FB2C460092237C /* SampleClient.app */;
@@ -130,7 +132,7 @@
 			);
 			mainGroup = 995A851029FB2C460092237C;
 			packageReferences = (
-				99A73A842A01FF48002884AB /* XCRemoteSwiftPackageReference "juxtacode-integration" */,
+				995AB4D82AA6CEB900C7DB27 /* XCRemoteSwiftPackageReference "juxtacode-integration" */,
 			);
 			productRefGroup = 995A851A29FB2C460092237C /* Products */;
 			projectDirPath = "";
@@ -295,6 +297,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SampleClient/Info.plist;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Needed to integrate with JuxtaCode";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,6 +327,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SampleClient/Info.plist;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Needed to integrate with JuxtaCode";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -362,20 +366,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		99A73A842A01FF48002884AB /* XCRemoteSwiftPackageReference "juxtacode-integration" */ = {
+		995AB4D82AA6CEB900C7DB27 /* XCRemoteSwiftPackageReference "juxtacode-integration" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/naiveapps/juxtacode-integration.git";
+			repositoryURL = "https://github.com/yori/juxtacode-integration.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		99A73A852A01FF48002884AB /* JuxtaCodeIntegration */ = {
+		995AB4D92AA6CEB900C7DB27 /* JuxtaCodeIntegration */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99A73A842A01FF48002884AB /* XCRemoteSwiftPackageReference "juxtacode-integration" */;
+			package = 995AB4D82AA6CEB900C7DB27 /* XCRemoteSwiftPackageReference "juxtacode-integration" */;
 			productName = JuxtaCodeIntegration;
 		};
 /* End XCSwiftPackageProductDependency section */
