@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/naiveapps/juxtacode-integration.git",
       "state" : {
-        "revision" : "970730f819e1281ed15e32228eacf427224101ff",
-        "version" : "0.1.0"
+        "branch" : "main",
+        "revision" : "bfd0545823d2ae3362c2ba0640490dd291da0815"
       }
     }
   ],
